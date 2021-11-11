@@ -44,7 +44,7 @@ class Medal extends Badge {
   }
   static async getList(): Promise<Medal[]> {
     return Badge.parseJson(
-      await Ajax.getTextWithCredentials(`https://api.live.bilibili.com/xlive/app-ucenter/v1/fansMedal/panel?page=1&page_size=256&target_id=${getUID()}`),
+      await Ajax.getTextWithCredentials(`https://api.live.bilibili.com/xlive/app-ucenter/v1/fansMedal/panel?page=1&page_size=10&target_id=${getUID()}`),
       {
         successAction: json => {
           const list: any[] = (json.data.list ?? []).concat(json.data.special_list ?? [])
